@@ -1,0 +1,12 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3301
+
+TrimBlank is a vim plugin aimed at helping trim trailing blank characters and blank lines.
+
+How to use this plugin?
+Select some lines and type "<Leader>ttb"(<Leader> would be "backslash" by
+default), then the trailing blank characters of the lines selected will be
+trimmed; select some lines and type "<Leader>tbl", then the blank lines among
+the lines selected will be trimmed.
+
+
+Check the latest code at: https://bitbucket.org/xuhdev/trimblank

@@ -1,0 +1,73 @@
+*TrimBlank.txt*
+
+File: doc/TrimBlank.txt
+Version: 0.1
+Author: H Xu(xuhdev AT gmail DOT com)
+Last Change: 27 October, 2010
+Description: A vim plugin helping trim trailing blank characters and trim
+blank lines
+License: You can redistribute this plugin and/or modify it under the terms 
+         of the GNU General Public License as published by the Free Software 
+         Foundation; either version 2, or any later version. 
+
+CONTENTS~
+                                            *TrimBlank-contents*
+----------------------------------------------------------------------------
+1. Overview                                 |TrimBlank-overview|
+2. Installation                             |TrimBlank-installation|
+3. Commands                                 |TrimBlank-commands|
+4. Key-mappings                             |TrimBlank-key-mappings|
+
+
+OVERVIEW~
+                                            *TrimBlank-overview*
+----------------------------------------------------------------------------
+TrimBlank is a vim plugin helping trim trailing blank characters and trim
+blank lines.
+
+How to use this plugin?
+Select some lines and type "<Leader>ttb"(<Leader> would be "backslash" by
+default), then the trailing blank characters of the lines selected will be
+trimmed; select some lines and type "<Leader>tbl", then the blank lines among
+the lines selected will be trimmed.
+
+
+INSTALLATION~
+                                            *TrimBlank-installation*
+----------------------------------------------------------------------------
+Download the TrimBlank.zip file and extract it to your vim runtime
+directory(~/.vim on linux and $VIM_INSTALLATION_FOLDER\vimfiles on
+windows), you'd better then use helptags command to generate the help
+tag(for example use ":helptags ~/.vim/doc" on Linux).
+
+
+COMMANDS~
+                                            *TrimBlank-commands*
+----------------------------------------------------------------------------
+                                            *TBTrimTrailing*
+:TBTrimTrailing
+
+Trim trailing blank characters for current line in normal mode or selected
+lines in visual mode.
+
+                                            *TBTrimBlankLines*
+:TBTrimBlankLines
+
+Trim blank lines among the selected lines in visual mode.
+
+
+KEY-MAPPINGS~
+                                            *TrimBlank-key-mappings*
+----------------------------------------------------------------------------
+
+<Leader>ttb ( Which stands for "Trim Trailing Blank" )
+Trim trailing blank characters for current line in normal mode or selected
+lines in visual mode.
+
+<Leader>tbl ( Which stands for "Trim Blank Lines" )
+Trim blank lines among the selected lines in visual mode.
+
+
+
+
+vim:ts=4:ft=help:tw=78
