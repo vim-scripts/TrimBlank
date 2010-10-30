@@ -1,9 +1,9 @@
 *TrimBlank.txt*
 
 File: doc/TrimBlank.txt
-Version: 0.1
+Version: 0.2
 Author: H Xu(xuhdev AT gmail DOT com)
-Last Change: 27 October, 2010
+Last Change: 30 October, 2010
 Description: A vim plugin helping trim trailing blank characters and trim
 blank lines
 License: You can redistribute this plugin and/or modify it under the terms 
@@ -17,19 +17,21 @@ CONTENTS~
 2. Installation                             |TrimBlank-installation|
 3. Commands                                 |TrimBlank-commands|
 4. Key-mappings                             |TrimBlank-key-mappings|
+5. Settings                                 |TrimBlank-settings|
 
 
 OVERVIEW~
                                             *TrimBlank-overview*
 ----------------------------------------------------------------------------
-TrimBlank is a vim plugin helping trim trailing blank characters and trim
+TrimBlank is a vim plugin aimed at helping trim trailing blank characters and
 blank lines.
 
 How to use this plugin?
 Select some lines and type "<Leader>ttb"(<Leader> would be "backslash" by
 default), then the trailing blank characters of the lines selected will be
 trimmed; select some lines and type "<Leader>tbl", then the blank lines among
-the lines selected will be trimmed.
+the lines selected will be trimmed; select some lines and type "<Leader>tab",
+then both trailing blank characters and blank lines would be trimmed.
 
 
 INSTALLATION~
@@ -55,6 +57,13 @@ lines in visual mode.
 
 Trim blank lines among the selected lines in visual mode.
 
+                                            *TBTrimAllBlank*
+:TBTrimAllBlank
+
+Trim both blank lines among the selected lines and trailing blank characters
+of the selected lines. Executing this command is equivalent to executing
+both TBTrimTrailing and TBTrimBlankLines commands.
+
 
 KEY-MAPPINGS~
                                             *TrimBlank-key-mappings*
@@ -67,7 +76,25 @@ lines in visual mode.
 <Leader>tbl ( Which stands for "Trim Blank Lines" )
 Trim blank lines among the selected lines in visual mode.
 
+<Leader>tab ( Which stands for "Trim All Blank" )
+Trim both blank lines among the selected lines and trailing blank characters
+of the selected lines.
 
+
+SETTINGS~
+                                            *TrimBlank-settings*
+----------------------------------------------------------------------------
+                                            
+                                            *TrimBlank-blank-characters*
+If you want to custom the characters regarded as blank characters, put those
+characters as a string in the varible "g:TrimBlank_BlankCharacters". For
+example, if you want space and tab to be regarded as blank characters, add the
+following line to your vimrc file:
+>
+ let g:TrimBlank_BlankCharacters = " \t"
+<
+Then TrimBlank will regard space and tab as blank characters. The default
+value of g:TrimBlank_BlankCharacters is " \t".
 
 
 vim:ts=4:ft=help:tw=78

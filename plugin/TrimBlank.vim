@@ -1,4 +1,5 @@
-" Version: 0.1
+" Version: 0.2
+" GetLatestVimScripts: 3301 1 :AutoInstall: TrimBlank.zip
 " see doc/TrimBlank.txt for more information
 
 
@@ -67,19 +68,28 @@ function s:TrimBlankLines( blank_characters, first_line, last_line ) " trim blan
     endfor
 endfunction
 
+function s:TrimAllBlank( blank_characters, first_line, last_line ) " trim both blank lines and trailing blank characters {{{1
+    call s:TrimTrailingBlank( a:blank_characters, a:first_line, a:last_line )
+    call s:TrimBlankLines( a:blank_characters, a:first_line, a:last_line )
+endfunction
+
 " commands {{{1
 command -range TBTrimTrailing call s:TrimTrailingBlank( g:TrimBlank_BlankCharacters, <line1>, <line2> )
 command -range TBTrimBlankLines call s:TrimBlankLines( g:TrimBlank_BlankCharacters, <line1>, <line2> )
+command -range TBTrimAllBlank call s:TrimAllBlank( g:TrimBlank_BlankCharacters, <line1>, <line2> )
 
 " maps {{{1
 nmap <Leader>ttb :TBTrimTrailing<CR>
 vmap <Leader>ttb :TBTrimTrailing<CR>
 nmap <Leader>tbl :TBTrimBlankLines<CR>
 vmap <Leader>tbl :TBTrimBlankLines<CR>
+nmap <Leader>tab :TBTrimAllBlank<CR>
+vmap <Leader>tab :TBTrimAllBlank<CR>
 
 
 " }}}
 
 let &cpo = s:saved_cpo
+unlet s:saved_cpo
 
 " vim:fdm=marker et
