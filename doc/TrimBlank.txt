@@ -1,9 +1,9 @@
 *TrimBlank.txt*
 
 File: doc/TrimBlank.txt
-Version: 0.2
+Version: 0.3
 Author: H Xu(xuhdev AT gmail DOT com)
-Last Change: 30 October, 2010
+Last Change: 6 November, 2010
 Description: A vim plugin helping trim trailing blank characters and trim
 blank lines
 License: You can redistribute this plugin and/or modify it under the terms 
@@ -18,6 +18,7 @@ CONTENTS~
 3. Commands                                 |TrimBlank-commands|
 4. Key-mappings                             |TrimBlank-key-mappings|
 5. Settings                                 |TrimBlank-settings|
+6. Functions                                |TrimBlank-functions|
 
 
 OVERVIEW~
@@ -95,6 +96,109 @@ following line to your vimrc file:
 <
 Then TrimBlank will regard space and tab as blank characters. The default
 value of g:TrimBlank_BlankCharacters is " \t".
+
+
+FUNCTIONS~
+                                            *TrimBlank-functions*
+----------------------------------------------------------------------------
+
+If you want to use this plugin as a third party library, you may be interested
+in this chapter. This chapter will help you understand some utility functions
+about blank trimming provided by TrimBlank.
+
+                                            *TrimBlank-TrimTrailingBlank*
+Prototype:
+TrimBlank#TrimTrailingBlank( blank_characters, first_line, last_line )
+
+Remark:
+This function would trim trailing blank characters from first_line to the
+last_line. Characters contained in the parameter "blank_characters", which is
+a string, will be regarded as blank characters. For example, the following
+code would trim trailing blank characters from the first line to the fourth
+line, and spaces and tabs are regarded as blank characters:
+>
+ call TrimBlank#TrimTrailingBlank( ' \t', 1, 4 )
+<
+
+Parameters:
+
+    blank_characters:
+    A string contains characters that would be regarded as blank characters, ' \t'
+    is most often used as the parameter.
+
+    first_line:
+    The first line number of the lines you want to trim.
+
+    last_line:
+    The last line number of the lines you want to trim.
+
+Return value:
+The total count of lines that are trimmed.
+
+                                            *TrimBlank-TrimBlankLines*
+Prototype:
+TrimBlank#TrimBlankLines( blank_characters, first_line, last_line )
+
+Remark:
+This function would remove blank lines from first_line to the last_line. blank
+lines are those lines which contains nothing or only blank characters.
+Characters contained in the parameter "blank_characters", which is a string,
+will be regarded as blank characters. For example, the following code would
+remove blank lines from the first line to the fourth line, and spaces and tabs
+are regarded as blank characters:
+>
+ call TrimBlank#TrimBlankLines( ' \t', 1, 4 )
+<
+
+Parameters:
+
+    blank_characters:
+    A string contains characters that would be regarded as blank characters, ' \t'
+    is most often used as the parameter.
+
+    first_line:
+    The first line number of the lines you want to trim.
+
+    last_line:
+    The last line number of the lines you want to trim.
+
+Return value:
+    The total count of lines been removed.
+
+                                            *TrimBlank-TrimAllBlank*
+Prototype:
+TrimBlank#TrimAllBlank( blank_characters, first_line, last_line )
+
+Remark:
+This function would remove both blank lines and trailing blank characters from
+first_line to last_line. Calling this function is equivalent to calling
+TrimBlank#TrimTrailingBlank first and then TrimBlank#TrimBlankLines. For
+example, 
+>
+ call TrimBlank#TrimAllBlank( '\t', 1, 4 )
+<
+is equivalent to the following code:
+>
+ call TrimBlank#TrimTrailingBlank( '\t', 1, 4 )
+ call TrimBlank#TrimBlankLines( ' \t', 1, 4 )
+<
+
+Parameters:
+
+    blank_characters:
+    A string contains characters that would be regarded as blank characters, ' \t'
+    is most often used as the parameter.
+
+    first_line:
+    The first line number of the lines you want to trim.
+
+    last_line:
+    The last line number of the lines you want to trim.
+
+Return value:
+The return value is a list, whose first element is the total count of trimmed
+lines and whose second element is the total count of blank lines that are
+removed.
 
 
 vim:ts=4:ft=help:tw=78
