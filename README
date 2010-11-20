@@ -10,7 +10,9 @@ trimmed; select some lines and type "<Leader>tbl", then the blank lines among
 the lines selected will be trimmed; select some lines and type "<Leader>tab",
 then both trailing blank characters and blank lines would be trimmed.
 
+If you find any bug, please report it to xuhdev@gmail.com or submit it on the 
+issue tracker: 
+https://bitbucket.org/xuhdev/trimblank/issues
 
-Check the latest code at: https://bitbucket.org/xuhdev/trimblank
 
-If you find any bug, please report it to: xuhdev AT gmail DOT com. Thank you.
+Repository: https://bitbucket.org/xuhdev/trimblank

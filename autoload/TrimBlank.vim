@@ -1,5 +1,5 @@
 " File: autoload/TrimBlank.vim
-" Version: 0.3
+" Version: 0.3.1
 " see doc/TrimBlank.txt for more information
 
 if v:version < 700

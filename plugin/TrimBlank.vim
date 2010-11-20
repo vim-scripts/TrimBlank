@@ -1,5 +1,5 @@
 " File: plugin/TrimBlank.vim
-" Version: 0.3
+" Version: 0.3.1
 " GetLatestVimScripts: 3301 1 :AutoInstall: TrimBlank.zip
 " see doc/TrimBlank.txt for more information
 
@@ -52,16 +52,19 @@ if has('gui_running') && has('menu')
     endif
     let s:leader = escape(s:leader, '\')
 
+    nnoremenu PopUp.-TrimBlankSep- :
+    vnoremenu PopUp.-TrimBlankSep- :
+    inoremenu PopUp.-TrimBlankSep- :
     for menuroot in ['Plugin.TrimBlank', 'PopUp.TrimBlank']
-        exec 'nnoremenu '.menuroot.'.Trim\ Trailing\ Blank\ &Characters<tab>'.s:leader.'ttb :TBTrimTrailing<cr>'
-        exec 'nnoremenu '.menuroot.'.Trim\ Blank\ &Lines<tab>'.s:leader.'tbl :TBTrimBlankLines<cr>'
-        exec 'nnoremenu '.menuroot.'.Trim\ &All\ Blanks<tab>'.s:leader.'tab :TBTrimAllBlank<cr>'
-        exec 'vnoremenu '.menuroot.'.Trim\ Trailing\ Blank\ &Characters<tab>'.s:leader.'ttb :TBTrimTrailing<cr>'
-        exec 'vnoremenu '.menuroot.'.Trim\ Blank\ &Lines<tab>'.s:leader.'tbl :TBTrimBlankLines<cr>'
-        exec 'vnoremenu '.menuroot.'.Trim\ &All\ Blanks<tab>'.s:leader.'tab :TBTrimAllBlank<cr>'
-        exec 'inoremenu '.menuroot.'.Trim\ Trailing\ Blank\ &Characters<tab>'.s:leader.'ttb <C-O>:TBTrimTrailing<cr>'
-        exec 'inoremenu '.menuroot.'.Trim\ Blank\ &Lines<tab>'.s:leader.'tbl <C-O>:TBTrimBlankLines<cr>'
-        exec 'inoremenu '.menuroot.'.Trim\ &All\ Blanks<tab>'.s:leader.'tab <C-O>:TBTrimAllBlank<cr>'
+        exec 'nnoremenu  '.menuroot.'.Trim\ Trailing\ Blank\ &Characters<tab>'.s:leader.'ttb :TBTrimTrailing<cr>'
+        exec 'nnoremenu  '.menuroot.'.Trim\ Blank\ &Lines<tab>'.s:leader.'tbl :TBTrimBlankLines<cr>'
+        exec 'nnoremenu  '.menuroot.'.Trim\ &All\ Blanks<tab>'.s:leader.'tab :TBTrimAllBlank<cr>'
+        exec 'vnoremenu  '.menuroot.'.Trim\ Trailing\ Blank\ &Characters<tab>'.s:leader.'ttb :TBTrimTrailing<cr>'
+        exec 'vnoremenu  '.menuroot.'.Trim\ Blank\ &Lines<tab>'.s:leader.'tbl :TBTrimBlankLines<cr>'
+        exec 'vnoremenu  '.menuroot.'.Trim\ &All\ Blanks<tab>'.s:leader.'tab :TBTrimAllBlank<cr>'
+        exec 'inoremenu  '.menuroot.'.Trim\ Trailing\ Blank\ &Characters<tab>'.s:leader.'ttb <C-O>:TBTrimTrailing<cr>'
+        exec 'inoremenu  '.menuroot.'.Trim\ Blank\ &Lines<tab>'.s:leader.'tbl <C-O>:TBTrimBlankLines<cr>'
+        exec 'inoremenu  '.menuroot.'.Trim\ &All\ Blanks<tab>'.s:leader.'tab <C-O>:TBTrimAllBlank<cr>'
     endfor
 
     unlet! s:leader

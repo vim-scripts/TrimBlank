@@ -1,9 +1,9 @@
 *TrimBlank.txt*
 
 File: doc/TrimBlank.txt
-Version: 0.3
+Version: 0.3.1
 Author: H Xu(xuhdev AT gmail DOT com)
-Last Change: 6 November, 2010
+Last Change: 20 November, 2010
 Description: A vim plugin helping trim trailing blank characters and trim
 blank lines
 License: You can redistribute this plugin and/or modify it under the terms 
